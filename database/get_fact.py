@@ -7,9 +7,9 @@ def get_fact() -> Fact:
     provider = PostgresConnectionProvider()
     with provider.cursor() as cur:
         # TODO: (Task P0.1) Write SQL query to select a random fact from the database
+	cur.execute("") // SQL query goes here
         # TODO: (Task P3.1) Add the likes and dislikes counts to the SQL query
         # TODO: (Task P4.1) add the category column to the SQL query
-        cur.execute()
         result = cur.fetchone()
         if result:
             # TODO: (Task P0.1) Create and return a Fact object using the data from the database result
