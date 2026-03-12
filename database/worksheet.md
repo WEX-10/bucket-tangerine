@@ -26,6 +26,8 @@ Visit https://www.w3schools.com/sql/default.asp to explore the basics of SQL (hi
 
 ## Tasks
 
+### Task 1
+
 Using the following example ‘Customers’ table in the database
  
 
@@ -35,23 +37,50 @@ Write queries to:
 
 1)	Select all columns from the ‘Customers’ table
 
+    ANSWER: 
 
 2)	Select the CustomerID, City and Country from the ‘Customers’ table
 
+    ANSWER:
 
 3)	Select all columns from the ‘Customers’ table, in alphabetical order of CustomerName
+
+    ANSWER:
 
 
 4)	Select the CustomerName from the ‘Customers’ table, returning only the first 3 rows
 
+    ANSWER:
 
 5)	Add a new row to the ‘Customers’ table, using whatever example data you like
+
+    ANSWER:
 
 
 6)	Update Antonio’s PostalCode to ‘05024’
 
+    ANSWER:
 
-7)	Delete the row with CustomerID ‘2’  from the ‘Customers’ table
+
+7)	Delete the row with CustomerID ‘2’  from the ‘Customers’ 
+table
+
+    ANSWER:
+
+
+### Task 2
+
+Now you are able to work with SQL queries, let's get familiar with the database you will be working with for this project.
+
+1. Run `make db-shell` to open an interactive shell** that allows you to write queries to interact with the database used for this project. (note: this assumes you have followed the initial setup instructions to setup the database)
+
+** if you are propmpted for a password, enter `password`
+
+2. Run `\dt` to see a list of relations in the database. You should see the `facts` table.
+
+3. Run `\d facts` to show the structure of the facts table. You should be able to see the different columns in the fact table, their types and their default values.
+
+You can use this database shell further on in the project to inspect the facts table when you need to.
 
 ## Hint: 
 
