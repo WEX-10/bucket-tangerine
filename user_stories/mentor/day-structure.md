@@ -4,9 +4,9 @@
 
 **Essential Requirements:**
 - You will **not** be doing day-to-day work while mentoring (mentoring runs from 1PM onwards, so morning work is still possible)
-- You **must** get permission from your line manager to volunteer
 - **Two mentors** must be with students at all times
 - Contact the WEX Slack channel if you need to use the toilet or step away (**#wex-mentors-2026**)
+- **Make sure** to use students preferred pronouns and names (they will have name tags with pronouns)
 
 ## Working with Students
 
