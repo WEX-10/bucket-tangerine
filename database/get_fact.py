@@ -17,4 +17,4 @@ def get_fact() -> Fact:
             # TODO: (Task P4.1) add the category information
             return Fact()
         else:
-            return Fact() # TODO: Create and return an empty Fact object if no result is found
+            return Fact() # TODO: (Task P0.1) Create and return an empty Fact object if no result is found

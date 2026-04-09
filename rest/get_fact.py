@@ -21,7 +21,7 @@ def get_route():
     # TODO: (Task P4.4) Add category data
     return render_template(
         "generate.html",
-        None, # TODO: (Task P0.2) Update here to pass the fact data to the template
+        None, # TODO: (Task P0.2) Update here (where None) to pass the fact data to the template
         None,
         None,
         None
