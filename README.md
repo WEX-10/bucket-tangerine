@@ -35,6 +35,10 @@ The codebase includes comprehensive worksheets and guides covering database conc
 
 ```make db-shell```
 
+2. Exit the SQLite shell:
+
+```.quit```
+
 ## To run the app
 
 1. Create a virtual environment:

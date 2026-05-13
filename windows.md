@@ -50,6 +50,9 @@ make db-shell
 
 # Or without make:
 sqlite3 facts.db
+
+# Quit database shell
+.quit
 ```
 
 ### Step 4: Run Application
