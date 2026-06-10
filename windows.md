@@ -16,17 +16,65 @@
 - Add to Windows PATH: `C:\Program Files (x86)\GnuWin32\bin`
 - Verify installation: `make --version`
 
+### Step 4: Install Git
+- Download Git from https://git-scm.com/download/win
+- Run the installer and accept all default settings (Git Bash and OpenSSH are included)
+- Make sure 
+- Verify installation by opening **Command Prompt** and running:
+
+```cmd
+git --version
+```
+
 **Note:** Make will have to be added to the path manually. Go to 'Edit environment variables' on your windows laptop and click on the PATH configurations. Add the path as above, and OK.
 
 ## Project Setup
 
-### Step 1: Download ZIP
-**Note:** Project team will likely do this, and distribute copies to the WEX laptops.
-- https://github.com/jasmine-smith_hpeprod/stem-work-experience-2026
-- `<> Code`
-- `Download ZIP `
+### Step 1: Generate a Deploy Key
 
-### Step 2: Create Virtual Environment
+Open **Command Prompt** or **Windows Powershell** and run (replace `laptop-1` with the laptop's name or number):
+
+```cmd
+ssh-keygen -t ed25519 -C "wex-laptop-1" 
+```
+
+- When asked for a passphrase, press **Enter** twice to leave it empty
+
+Print the public key so I can copy it:
+
+```cmd
+type Users\%WEX-[no. on laptop]%\.ssh\id_ed25519.pub
+```
+
+Give the output to Jasmine — I will add it to the repository on GitHub as a **read-only deploy key**.
+
+### Step 2: Configure SSH
+
+Create (or open) the SSH config file:
+
+```cmd
+edit Users\%USERPROFILE%\.ssh\config
+```
+
+Add the following text and save:
+
+```
+Host github-stem
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+### Step 3: Clone the Repository
+
+Once I confirm the deploy key has been added, run:
+
+```cmd
+git clone git@github-stem:jasmine-smith_hpeprod/stem-work-experience-2026.git
+cd stem-work-experience-2026
+```
+
+### Step 4: Create Virtual Environment
 ```powershell
 python -m venv venv
 
@@ -37,7 +85,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 3: Database Setup
+### Step 5: Database Setup
 ```powershell
 # Setup database schema and data
 make setup-db
@@ -55,7 +103,7 @@ sqlite3 facts.db
 .quit
 ```
 
-### Step 4: Run Application
+### Step 6: Run Application
 ```powershell
 python app.py
 ```
