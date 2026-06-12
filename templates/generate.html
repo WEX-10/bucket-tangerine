@@ -11,9 +11,9 @@
 
         <div class="main-container">
             <h1>Random Fact Generator</h1>
-            <!-- TODO: (Task P4.10) Add the filter container to get a new fact when the category filter changes -->
+            <!-- TODO: (Task P5.7) Add the filter container to get a new fact when the category filter changes -->
             <div class="fact-container">
-                <!-- TODO: (Task P4.10) Display the fact category here -->
+                <!-- TODO: (Task P4.6) Display the fact category here -->
                 <strong id="fact-text">{{ random_fact }}</strong>
             </div>
             <div class="voting-container">
@@ -42,7 +42,7 @@
     <script>
         async function loadCategories() {
             try {
-                const response = await fetch(''); // TODO: (Task P4.9) Update the URL to the correct endpoint
+                const response = await fetch(''); // TODO: (Task P5.6) Update the URL to the correct endpoint
                 const data = await response.json();
                 const select = document.getElementById('category-filter');
                 data.categories.forEach(cat => {
@@ -108,7 +108,7 @@
                     dislikeCount.id = `dislike-count-${data.id}`;
                     dislikeCount.textContent = data.dislikes;
 
-                    // TODO: Handle category information
+                    // TODO: (Task P4.6) Handle category information
                     
                 }, 200);
             } catch (error) {

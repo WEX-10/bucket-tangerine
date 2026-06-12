@@ -1,4 +1,4 @@
-# Task P0.4
+# Tasks P0.4, P4.7, P5.9
 
 import pytest
 from unittest.mock import Mock, patch
@@ -8,7 +8,7 @@ import os
 # Add the project root to Python path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from database.get_fact import get_fact, get_categories
+from database.get_fact import get_fact, get_facts_by_category
 from fact import Fact
 
 
@@ -107,11 +107,11 @@ class TestGetFact:
         assert "Database connection failed" in str(exc_info.value)
 
 
-class TestGetCategories:
-    """Test the get_categories function"""
+class TestGetFactsByCategory:
+    """Test the get_facts_by_category function for Task P5.9"""
 
     @patch.object(sys.modules['database.get_fact'], 'SQLiteConnectionProvider')
-    def test_get_categories_success(self, mock_provider_class):
+    def test_get_facts_by_category_success(self, mock_provider_class):
         """Test successful retrieval of categories"""
         mock_provider = Mock()
         mock_cursor = Mock()
@@ -126,12 +126,12 @@ class TestGetCategories:
             ("math",)
         ]
 
-        result = get_categories()
+        result = get_facts_by_category()
         assert result == ["science", "history", "math"]
         mock_cursor.execute.assert_called_once()
 
     @patch.object(sys.modules['database.get_fact'], 'SQLiteConnectionProvider')
-    def test_get_categories_empty(self, mock_provider_class):
+    def test_get_facts_by_category_empty(self, mock_provider_class):
         """Test retrieval when no categories exist"""
         mock_provider = Mock()
         mock_cursor = Mock()
@@ -142,12 +142,12 @@ class TestGetCategories:
         # Mock database return values
         mock_cursor.fetchall.return_value = []
 
-        result = get_categories()
+        result = get_facts_by_category()
         assert result == []
         mock_cursor.execute.assert_called_once()
 
     @patch.object(sys.modules['database.get_fact'], 'SQLiteConnectionProvider')
-    def test_get_categories_database_error(self, mock_provider_class):
+    def test_get_facts_by_category_database_error(self, mock_provider_class):
         """Test handling of database errors during category retrieval"""
         mock_provider = Mock()
         mock_cursor = Mock()
@@ -159,7 +159,7 @@ class TestGetCategories:
         mock_cursor.execute.side_effect = Exception("Database error")
 
         with pytest.raises(Exception) as exc_info:
-            get_categories()
+            get_facts_by_category()
         assert "Database error" in str(exc_info.value)
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# Task P1.4
+# Tasks P1.4, P4.7
 
 import pytest
 from unittest.mock import Mock, patch
@@ -29,10 +29,10 @@ class TestCreateFact:
         mock_cursor.fetchone.return_value = (1, "Test fact", "science", 0, 0)
 
         # ACT
-        # TODO: Call the create_fact function with some test data as arguments
+        # TODO: (Task P4.7) Call the create_fact function with fact and category test data as arguments
 
         # ASSERT
-        # TODO: Check if returned fact fields match what we expect 
+        # TODO: (Task P4.7) Check if returned fact fields, including category, match what we expect 
 
         # Verify SQL execution
         mock_cursor.execute.assert_called_once()
@@ -51,10 +51,10 @@ class TestCreateFact:
         # TODO: Mock database return with NULL values for likes and dislikes
 
         # ACT
-        # TODO: Call the create_fact function with some test data as arguments
+        # TODO: (Task P4.7) Call the create_fact function with fact and category test data as arguments
 
         # ASSERT
-        # TODO: Check if returned fact fields match what we expect 
+        # TODO: (Task P4.7) Check if returned fact fields, including category, match what we expect 
 
     @patch.object(sys.modules['database.create_fact'], 'SQLiteConnectionProvider')
     def test_create_fact_empty_strings(self, mock_provider_class):
@@ -69,10 +69,10 @@ class TestCreateFact:
         mock_cursor.fetchone.return_value = (4, "", "", 0, 0)
 
         # ACT
-        # TODO: Call the create_fact function with empty string test data as arguments
+        # TODO: (Task P4.7) Call the create_fact function with empty string test data as arguments
 
         # ASSERT
-        # TODO: Check if returned fact fields match what we expect 
+        # TODO: (Task P4.7) Check if returned fact fields, including category, match what we expect 
 
 
 if __name__ == '__main__':

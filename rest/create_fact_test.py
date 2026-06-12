@@ -1,4 +1,4 @@
-# TASK: P1.4
+# TASKS: P1.4, P4.7
 
 import pytest
 from unittest.mock import Mock, patch
@@ -44,7 +44,7 @@ class TestCreateFactRoute:
     def test_create_route_post_success(self, mock_create_fact, app):
         """Test successful POST request with valid data"""
         # ARRANGE
-        # TODO: Create a 'mock_fact' variable with some test data
+        # TODO: (Task P4.7) Create a 'mock_fact' variable with fact and category test data
         mock_create_fact.return_value = mock_fact
 
         with app.test_request_context('/', method='POST', data={
