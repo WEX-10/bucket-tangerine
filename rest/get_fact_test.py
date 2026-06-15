@@ -1,4 +1,4 @@
-# Task P0.4
+# Tasks P0.4, P4.7, P5.9
 
 import pytest
 from unittest.mock import Mock, patch
@@ -35,7 +35,7 @@ class TestGetFactRoute:
     # Patch the get_fact function to mock database interactions
     @patch('rest.get_fact.get_fact')
     def test_get_route_html_response(self, mock_get_fact, app):
-        """Test GET request returns HTML template by default"""
+        """Test GET request returns HTML template by default with category data"""
         # ARRANGE
         mock_fact = Fact(id=1, fact="Test fact", category="science", likes=5, dislikes=2)
         mock_get_fact.return_value = mock_fact
