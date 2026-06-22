@@ -26,13 +26,37 @@
 git --version
 ```
 
+### Step 5: Install SQLite3
+- Download x64 binary from: https://sqlite.org/2026/sqlite-tools-win-x64-3530200.zip
+- Move the extracted folder to Program Files or Applications
+- Right-click and select `Copy as Path`
+- Open `Edit Environment Variables`
+- In Path, add a new path, pasting the path copied eariler.
+- Verify installation by opening **Command Prompt** and running:
+
+```cmd
+sqlite3 --version
+```
+
 **Note:** Make will have to be added to the path manually. Go to 'Edit environment variables' on your windows laptop and click on the PATH configurations. Add the path as above, and OK.
 
 ## Project Setup
 
+### Prequisites:
+
+- WEX laptop has an associated outlook email, in the format `work-experience<NO.>@outlook.com`
+- A github account is associated with the WEX email, with the username in the format `WEX-<NO>`
+
 ### Step 1: Generate a Deploy Key
 
-Open **Command Prompt** or **Windows Powershell** and run (replace `laptop-1` with the laptop's name or number):
+Open **Command Prompt** or **Windows Powershell** and run
+
+```cmd
+cd ~
+``` 
+to ensure you are in the correct root directory.
+
+Then run (replace `laptop-1` with the laptop's name or number):
 
 ```cmd
 ssh-keygen -t ed25519 -C "wex-laptop-1" 
@@ -53,7 +77,7 @@ Give the output to Jasmine — I will add it to the repository on GitHub as a **
 Create (or open) the SSH config file:
 
 ```cmd
-edit Users\%USERPROFILE%\.ssh\config
+edit .ssh\config
 ```
 
 Add the following text and save:

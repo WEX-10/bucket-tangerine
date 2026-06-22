@@ -72,7 +72,7 @@ You should now see ```(venv)``` at the beginning of your terminal.
 
 10. Run `git remote -v` to verify the remote is correct
 
-11. Run `git push -u main` to transfer the work experience files to the new repository
+11. Run `git push --set-upstream origin main` to transfer the work experience files to the new repository
 
 ### To collaborate 
 
@@ -88,19 +88,21 @@ You should now see ```(venv)``` at the beginning of your terminal.
 
 6. If you're happy with the changes, run `git add .` to add all of the changes, or `git add <filename>` to add individual files.
 
-7. Then, to put up a PR (Pull Request) you will run `git push --set-upstream origin [your-branch-from-above]` 
+7. Then, run `git commit -m "<your-message-explaining-changes>"` to stash your changes on your branch.
 
-8. This will push your changes to the remote origin - you can now navigate to the GitHub repository, where you will be able to open the PR in the interface.
+8. Then, to put up a PR (Pull Request) you will run `git push --set-upstream origin [your-branch-from-above]` 
 
-9. The team can now review your PR - checking for anything that may be missing or incorrect. The easiest way to do this is to navigate to the `Files Changed` tab in the PR.
+9. This will push your changes to the remote origin - you can now navigate to the GitHub repository, where you will be able to open the PR in the interface.
 
-10. Once everyone is happy with the changes, in the corner there is a `Submit review` button. Click this an select `Approve` and then `Submit`. This **must** be done by someone other than the repository owner.
+10. The team can now review your PR - checking for anything that may be missing or incorrect. The easiest way to do this is to navigate to the `Files Changed` tab in the PR.
 
-11. Going back to the main PR screen, you should see a green button at the bottom, `Sqaush and merge`. Click this to merge your changes into the main repository.
+11. Once everyone is happy with the changes, in the corner there is a `Submit review` button. Click this an select `Approve` and then `Submit`. This **must** be done by someone other than the repository owner.
 
-12. Checkout to main branch (`git checkout main`) and pull changes (`git pull`) to keep your local copy up-to-date with the remote.
+12. Going back to the main PR screen, you should see a green button at the bottom, `Sqaush and merge`. Click this to merge your changes into the main repository.
 
-13. Repeat steps 4-12 for additional feature work.
+13. Checkout to main branch (`git checkout main`) and pull changes (`git pull`) to keep your local copy up-to-date with the remote.
+
+14. Repeat steps 4-13 for additional feature work.
 
 # P0: Random Fun Fact Generator
 As an engineer, I want to be able to get a random fun fact from a database, so that I can share them with my team.
