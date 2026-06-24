@@ -1,11 +1,9 @@
+# Task P3.5
+
 import pytest
 from unittest.mock import Mock, patch
 import sys
-import os
 import json
-
-# Add the project root to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from flask import Flask
 from rest.vote_fact import vote_route
@@ -14,19 +12,6 @@ from fact import Fact
 
 class TestVoteFactRoute:
     """Test the vote_route function"""
-
-    @pytest.fixture
-    def app(self):
-        """Create test Flask app"""
-        app = Flask(__name__)
-        app.config['TESTING'] = True
-        return app
-
-    @pytest.fixture
-    def client(self, app):
-        """Create test client"""
-        with app.test_request_context():
-            return app.test_client()
 
     @patch('rest.vote_fact.vote_fact')
     def test_vote_route_like_success(self, mock_vote_fact, app):
@@ -68,17 +53,11 @@ class TestVoteFactRoute:
                 mock_jsonify.return_value = "dislike response"
 
                 # ACT
-                result = vote_route()
+                # TODO: (Task P3.5) Call the vote_route function
 
                 # ASSERT
-                mock_vote_fact.assert_called_once_with(2, "dislike")
-                mock_jsonify.assert_called_once_with({
-                    "fact_id": 2,
-                    "new_count": 8,  # updated_fact.dislikes (dislike vote)
-                    "likes": 5,
-                    "dislikes": 8
-                })
-                assert result == ("dislike response", 200)
+                # TODO: (Task P3.5) Verify vote_fact was called with the correct arguments
+                # TODO: (Task P3.5) Verify the JSON response contains the correct data and 200 status code
 
     @patch('rest.vote_fact.vote_fact')
     def test_vote_route_value_error_handling(self, mock_vote_fact, app):
@@ -92,12 +71,11 @@ class TestVoteFactRoute:
                 mock_jsonify.return_value = "error response"
 
                 # ACT
-                result = vote_route()
+                # TODO: (Task P3.5) Call the vote_route function
 
                 # ASSERT
-                mock_vote_fact.assert_called_once_with(1, "invalid")
-                mock_jsonify.assert_called_once_with({"error": "Invalid vote type"})
-                assert result == ("error response", 400)
+                # TODO: (Task P3.5) Verify vote_fact was called with the invalid vote type
+                # TODO: (Task P3.5) Verify the error JSON response and 400 status code
 
 if __name__ == '__main__':
     pytest.main([__file__])

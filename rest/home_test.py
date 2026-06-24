@@ -1,30 +1,10 @@
 import pytest
-from unittest.mock import Mock, patch
-import sys
-import os
-
-# Add the project root to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from flask import Flask
+from unittest.mock import patch
 from rest.home import home_route
 
 
 class TestHomeRoute:
     """Test the home_route function"""
-
-    @pytest.fixture
-    def app(self):
-        """Create test Flask app"""
-        app = Flask(__name__)
-        app.config['TESTING'] = True
-        return app
-
-    @pytest.fixture
-    def client(self, app):
-        """Create test client"""
-        with app.test_request_context():
-            return app.test_client()
 
     def test_home_route_success(self, app):
         """Test successful home route call"""

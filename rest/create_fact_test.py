@@ -1,33 +1,14 @@
 # TASKS: P1.4, P4.7
 
 import pytest
-from unittest.mock import Mock, patch
-import sys
-import os
+from unittest.mock import patch
 
-# Add the project root to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from flask import Flask
 from rest.create_fact import create_route
 from fact import Fact
 
 
 class TestCreateFactRoute:
     """Test the create_route function"""
-
-    @pytest.fixture
-    def app(self):
-        """Create test Flask app"""
-        app = Flask(__name__)
-        app.config['TESTING'] = True
-        return app
-
-    @pytest.fixture
-    def client(self, app):
-        """Create test client"""
-        with app.test_request_context():
-            return app.test_client()
 
     def test_create_route_get_request(self, app):
         """Test GET request returns create.html template"""
@@ -44,7 +25,7 @@ class TestCreateFactRoute:
     def test_create_route_post_success(self, mock_create_fact, app):
         """Test successful POST request with valid data"""
         # ARRANGE
-        # TODO: (Task P4.7) Create a 'mock_fact' variable with fact and category test data
+        mock_fact = None # TODO: (Task P4.7) Create a 'mock_fact' variable with fact and category test data
         mock_create_fact.return_value = mock_fact
 
         with app.test_request_context('/', method='POST', data={
@@ -55,7 +36,7 @@ class TestCreateFactRoute:
                 mock_render.return_value = "success template"
 
                 # ACT
-                # Call the create_route function
+                result = None # TODO: (Task P4.7) Call the create_route function
 
                 # ASSERT
                 assert result == "success template"
@@ -81,16 +62,10 @@ class TestCreateFactRoute:
                 mock_render.return_value = "template with empty category"
 
                 # ACT
-                result = create_route()
+                # TODO: (Task P4.7) Call the create_route function
 
                 # ASSERT
-                assert result == "template with empty category"
-                mock_create_fact.assert_called_once_with('Fact without category', '')
-                mock_render.assert_called_once_with(
-                    "create.html", 
-                    random_fact="Fact without category", 
-                    category=None
-                )
+                # TODO: (Task P4.7) Verify the result, create_fact call, and render_template call
 
     @patch('rest.create_fact.create_fact')
     def test_create_route_post_with_missing_category(self, mock_create_fact, app):
@@ -107,16 +82,10 @@ class TestCreateFactRoute:
                 mock_render.return_value = "template with None category"
 
                 # ACT
-                result = create_route()
+                # TODO: (Task P4.7) Call the create_route function
 
                 # ASSERT
-                assert result == "template with None category"
-                mock_create_fact.assert_called_once_with('Fact with no category field', None)
-                mock_render.assert_called_once_with(
-                    "create.html", 
-                    random_fact="Fact with no category field", 
-                    category=None
-                )
+                # TODO: (Task P4.7) Verify the result, create_fact call, and render_template call
 
     def test_create_route_post_missing_fact_text(self, app):
         """Test POST request with missing fact_text returns 400 error"""
@@ -125,10 +94,11 @@ class TestCreateFactRoute:
             # No fact_text provided
         }):
             # ACT
-            result = create_route()
+            # TODO: (Task P1.4) Call the create_route function
 
             # ASSERT
-            assert result == ("Fact text is required", 400)
+            # TODO: (Task P1.4) Verify the result is a 400 error response
+            pass
 
     @patch('rest.create_fact.create_fact')
     def test_create_route_database_error(self, mock_create_fact, app):
@@ -141,11 +111,8 @@ class TestCreateFactRoute:
             'category': 'science'
         }):
             # ACT & ASSERT
-            with pytest.raises(Exception) as exc_info:
-                create_route()
-
-            assert "Database connection failed" in str(exc_info.value)
-            mock_create_fact.assert_called_once_with('Test fact', 'science')
+            # TODO: (Task P1.4) Call create_route and verify it raises an exception with the correct message
+            pass
 
 if __name__ == '__main__':
     pytest.main([__file__])

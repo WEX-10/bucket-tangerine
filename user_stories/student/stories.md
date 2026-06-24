@@ -78,7 +78,7 @@ You can complete the [HTTP worksheet](../../rest/worksheet.md) before moving on 
    - Return either JSON data or render an HTML template with the fact
 
 ---
-### REST Router
+### REST Router 
 #### Steps:
 **P0.3 Update the router** in `rest/router.py`:
    - Import the get_route function from get_fact module

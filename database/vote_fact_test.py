@@ -1,12 +1,8 @@
-# Task P3.4
+# Task P3.5
 
 import pytest
 from unittest.mock import Mock, patch
 import sys
-import os
-
-# Add the project root to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from database.vote_fact import vote_fact
 from fact import Fact
@@ -17,14 +13,11 @@ class TestVoteFact:
 
     # Patch the SQLiteConnectionProvider to mock database interactions
     @patch.object(sys.modules['database.vote_fact'], 'SQLiteConnectionProvider')
-    def test_vote_fact_like_success(self, mock_provider_class):
+    def test_vote_fact_like_success(self, mock_provider_class, mock_db):
         """Test successful like vote on a fact"""
         # ARRANGE
-        mock_provider = Mock()
-        mock_cursor = Mock()
+        mock_provider, mock_cursor = mock_db
         mock_provider_class.return_value = mock_provider
-        mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
-        mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
 
         # Mock database return values after like
         mock_cursor.fetchone.return_value = (1, "Test fact", "science", 6, 2)
@@ -56,14 +49,11 @@ class TestVoteFact:
 
     # Patch the SQLiteConnectionProvider to mock database interactions
     @patch.object(sys.modules['database.vote_fact'], 'SQLiteConnectionProvider')
-    def test_vote_fact_dislike_success(self, mock_provider_class):
+    def test_vote_fact_dislike_success(self, mock_provider_class, mock_db):
         """Test successful dislike vote on a fact"""
         # ARRANGE
-        mock_provider = Mock()
-        mock_cursor = Mock()
+        mock_provider, mock_cursor = mock_db
         mock_provider_class.return_value = mock_provider
-        mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
-        mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
 
         # Mock database return values after dislike
         mock_cursor.fetchone.return_value = (2, "Another fact", "history", 5, 8)
@@ -89,19 +79,17 @@ class TestVoteFact:
         mock_provider.commit.assert_called_once()
 
     # Patch the SQLiteConnectionProvider to mock database interactions
+    @pytest.mark.parametrize("invalid_vote", ["invalid", ""])
     @patch.object(sys.modules['database.vote_fact'], 'SQLiteConnectionProvider')
-    def test_vote_fact_invalid_vote_type(self, mock_provider_class):
-        """Test error handling for invalid vote type"""
+    def test_vote_fact_invalid_vote_type(self, mock_provider_class, mock_db, invalid_vote):
+        """Test error handling for invalid or empty vote types"""
         # ARRANGE
-        mock_provider = Mock()
-        mock_cursor = Mock()
+        mock_provider, mock_cursor = mock_db
         mock_provider_class.return_value = mock_provider
-        mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
-        mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
 
         # ACT
         with pytest.raises(ValueError) as exc_info:
-            # TODO: Call the vote_fact function with an invalid vote type
+            pass  # TODO: Call the vote_fact function with invalid_vote as the vote type
 
         # ASSERT
         assert "" in str(exc_info.value) # TODO: Check that the error message contains the expected text
@@ -112,34 +100,11 @@ class TestVoteFact:
 
     # Patch the SQLiteConnectionProvider to mock database interactions
     @patch.object(sys.modules['database.vote_fact'], 'SQLiteConnectionProvider')
-    def test_vote_fact_empty_vote_type(self, mock_provider_class):
-        """Test error handling for empty vote type"""
-        # ARRANGE
-        mock_provider = Mock()
-        mock_cursor = Mock()
-        mock_provider_class.return_value = mock_provider
-        mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
-        mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
-
-        # ACT
-        with pytest.raises(ValueError) as exc_info:
-            # TODO: Call the vote_fact function with an empty vote type
-
-        # ASSERT
-        assert "" in str(exc_info.value) # TODO: Check that the error message contains the expected text
-        mock_cursor.execute.assert_not_called()
-        mock_provider.commit.assert_not_called()
-
-    # Patch the SQLiteConnectionProvider to mock database interactions
-    @patch.object(sys.modules['database.vote_fact'], 'SQLiteConnectionProvider')
-    def test_vote_fact_with_null_likes_dislikes(self, mock_provider_class):
+    def test_vote_fact_with_null_likes_dislikes(self, mock_provider_class, mock_db):
         """Test voting on fact with NULL likes/dislikes"""
         # ARRANGE
-        mock_provider = Mock()
-        mock_cursor = Mock()
+        mock_provider, mock_cursor = mock_db
         mock_provider_class.return_value = mock_provider
-        mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
-        mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
 
         # Mock result with NULL values
         mock_cursor.fetchone.return_value = (3, "Fact with nulls", "trivia", None, None)
