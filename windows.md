@@ -28,7 +28,7 @@ git --version
 
 ### Step 5: Install SQLite3
 - Download x64 binary from: https://sqlite.org/2026/sqlite-tools-win-x64-3530200.zip
-- Move the extracted folder to Program Files or Applications
+- Move the extracted folder to Program Files(x86)
 - Right-click and select `Copy as Path`
 - Open `Edit Environment Variables`
 - In Path, add a new path, pasting the path copied eariler.
