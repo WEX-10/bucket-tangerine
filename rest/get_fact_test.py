@@ -1,37 +1,16 @@
-# Tasks P0.4, P4.7, P5.9
+ #P4.7, P5.9
+# To Run: pytest rest/get_fact_test.py
 
 import pytest
-from unittest.mock import Mock, patch
-import sys
-import os
-import json
+from unittest.mock import patch
 
-# Add the project root to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from flask import Flask
 from rest.get_fact import get_route
 from fact import Fact
 
 
 class TestGetFactRoute:
     """Test the get_route function"""
-
-    # pytest fixture to create a test Flask app
-    @pytest.fixture
-    def app(self):
-        """Create test Flask app"""
-        app = Flask(__name__)
-        app.config['TESTING'] = True
-        return app
-
-    # pytest fixture to create a test client
-    @pytest.fixture
-    def client(self, app):
-        """Create test client"""
-        with app.test_request_context():
-            return app.test_client()
-
+# Tasks P0.4
     # Patch the get_fact function to mock database interactions
     @patch('rest.get_fact.get_fact')
     def test_get_route_html_response(self, mock_get_fact, app):
@@ -88,11 +67,11 @@ class TestGetFactRoute:
         with app.test_request_context('/'):
             # ACT
             with pytest.raises(Exception) as exc_info:
-                # TODO: Call the get_route function
+                pass  # TODO: Call the get_route function
 
             # ASSERT
-            assert "" in str(exc_info.value) # TODO: Verify that the exception message contains the correct error message
-            mock_get_fact.assert_called_once()
+            # TODO: (Task P0.4) Verify the exception message contains the correct error message
+            # TODO: (Task P0.4) Verify that get_fact was called
 
     # Patch the get_fact function to mock database interactions
     @patch('rest.get_fact.get_fact')
@@ -108,11 +87,11 @@ class TestGetFactRoute:
 
                 # ACT
                 with pytest.raises(Exception) as exc_info:
-                    # TODO: Call the get_route function
+                    pass  # TODO: Call the get_route function
 
                 # ASSERT
-                assert "" in str(exc_info.value) # TODO: Verify that the exception message contains the correct error message
-                mock_get_fact.assert_called_once()
+                # TODO: (Task P0.4) Verify the exception message contains the correct error message
+                # TODO: (Task P0.4) Verify that get_fact was called
 
 if __name__ == '__main__':
     pytest.main([__file__])

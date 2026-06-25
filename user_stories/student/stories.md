@@ -78,7 +78,7 @@ You can complete the [HTTP worksheet](../../rest/worksheet.md) before moving on 
    - Return either JSON data or render an HTML template with the fact
 
 ---
-### REST Router
+### REST Router 
 #### Steps:
 **P0.3 Update the router** in `rest/router.py`:
    - Import the get_route function from get_fact module
@@ -99,6 +99,8 @@ Some unit tests have been implemented for you as an example, you may not need to
    - Test edge cases (e.g. empty database, connection errors)
    - Place tests in the same directory as the file being tested
    - PowerPoint: Why would we want unit tests to validate functions are working correctly as a software development team?
+
+Run your tests with: `make test-p0`
 
 # P1: Random Fun Fact Creator
 As an engineer, I want to be able to create my own fun facts, so that I can expand the fact list and never run out of new ones.
@@ -140,6 +142,8 @@ As an engineer, I want to be able to create my own fun facts, so that I can expa
 **P1.4 Implement unit tests** in the test files which are following the pattern `filename_test.py`:
 
 You can use the tests from the previous tasks as a guide here.
+
+Run your tests with: `make test-p1`
 
 # P2: Random Fun Fact Website Design
 As a UI/UX engineer, I want my random fun fact generator to provide an accessible user experience whilst maintaining a clear theme.
@@ -218,6 +222,8 @@ As an engineer, I want to be able to add a voting system to my fact service, so 
    - Test invalid vote types
    - Test voting on non-existent facts
 
+Run your tests with: `make test-p3`
+
 ---
 
 # P4: Add Fact Category
@@ -271,6 +277,8 @@ First, we want to modify our existing workflows to include category information,
 **P4.7 Update the unit tests**:
    - Update any implemented unit tests to include the addition of a category field.
 
+Run your tests with: `make test-p0` and `make test-p1` (category updates span both of the prior tasks)
+
 ---
 
 # P5: Add Category Filtering
@@ -323,3 +331,5 @@ Now that facts have categories, we can add filtering so users can choose which c
 #### Steps:
 **P5.9 Update the unit tests**:
    - Add unit tests to cover the fact filtering logic.
+
+Run your tests with: `make test-p5`

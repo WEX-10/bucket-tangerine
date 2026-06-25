@@ -6,9 +6,11 @@ from database import create_fact
 def create_route():
     if request.method == "GET":
         # TODO: (Task P1.2) Render the create.html template
+        pass
 
     if request.method == "POST":
         # TODO: (Task P1.2) Get the fact_text from the form
+        pass
 
         # TODO: (Task P4.5) Get the category from the form
 

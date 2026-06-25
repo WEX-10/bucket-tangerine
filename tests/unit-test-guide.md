@@ -81,5 +81,7 @@ def test_addition():
 - Test one thing at a time to keep it simple.
 - Name your tests so it’s clear what they check.
 - If your code depends on other parts, you can pretend those parts work perfectly to focus on testing just one thing.
+- *Hint:* You can use pytest to run a specific test case or group, i.e. `pytest -v -k "get_fact"`. This will match all test cases with `get_fact` in the name.
+- If you navigate to the **Makefile** at the root of the repo, you will find targets you can run to test the task you are working on.
 
 This pattern makes your tests easier to understand and fix if something goes wrong.

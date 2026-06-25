@@ -1,5 +1,8 @@
+# THIS FILE IS NOT A TASK, YOU CAN IGNORE IT. IT IS A TEST FILE FOR THE DATABASE PROVIDER.
+
 import pytest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
+
 import sys
 import os
 
