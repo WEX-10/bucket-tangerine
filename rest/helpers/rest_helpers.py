@@ -1,3 +1,4 @@
+# This file contains helper functions for the REST API routes. It is not a task and can be ignored for the purpose of the tasks.
 from flask import request, jsonify
 
 
@@ -9,7 +10,7 @@ def fact_to_json(fact):
     """Converts a Fact object to a JSON-serializable dictionary."""
     return {
         "id": getattr(fact, "id", None),
-        "fact": fact.fact,
+        "fact": getattr(fact, "fact", None),
         "category": getattr(fact, "category", None),
         "likes": getattr(fact, "likes", 0),
         "dislikes": getattr(fact, "dislikes", 0)

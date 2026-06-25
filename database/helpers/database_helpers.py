@@ -1,3 +1,6 @@
+# This file contains helper functions for converting database rows to Fact objects and fetching fact data from a database cursor. 
+# It is not a task and can be ignored for the purpose of the tasks.
+
 from fact import Fact
 
 def row_to_fact(row, columns=None):
