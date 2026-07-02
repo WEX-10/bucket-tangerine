@@ -52,7 +52,7 @@ You should now see ```(venv)``` at the beginning of your terminal.
 
 ### To create a new repository (only 1 repository per group)
 
-1.  In your terminal at the root (`cd ~`) (integrated VScode or *CommandPrompt/Windows PowerShell), run the command `git clone  https://github.com/jasmine-smith_hpeprod/stem-work-experience-2026.git`, then `cd stem-work-experience-2026`
+1.  In your terminal at the root (`cd ~`) (integrated VScode or *CommandPrompt/Windows PowerShell), run the command `git clone git@github-stem:jasmine-smith_hpeprod/stem-work-experience-2026.git`, then `cd stem-work-experience-2026`
 
 2. Decide on a repository name (can be anything, doesn't have to follow the stem-work-experience convention)
 
