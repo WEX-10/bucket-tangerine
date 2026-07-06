@@ -50,6 +50,64 @@ You should now see ```(venv)``` at the beginning of your terminal.
 
 ```python app.py```
 
+### To create a new repository (only 1 repository per group)
+
+1.  In your terminal at the root (`cd ~`) (integrated VScode or *CommandPrompt/Windows PowerShell), run the command `git clone git@github-stem:jasmine-smith_hpeprod/stem-work-experience-2026.git`, then `cd stem-work-experience-2026`
+
+2. Decide on a repository name (can be anything, doesn't have to follow the stem-work-experience convention)
+
+3. Go to `github.com` -> `Profile Icon` -> `Repositories` -> `New`
+
+4. Under `Owner`, select your username and add your chosen repository name
+
+5. Leave default options, ensuring your repository is `Public` (this will make it easier for others to contribute)
+
+6. Click `Create Repository`
+
+7. Within your new repository, you will see a `<>Code` button, click and check that `HTTPS` is selected. Copy the URL given (follows the format` https://github.com/<your-username>/<your-repo-name>.git`).
+
+8. Run `git remote remove origin` in your terminal (integrated or CommandPrompt/Windows PowerShell)
+
+9. Run `git remote add origin <URL-from-above>` in your terminal
+
+10. In your **root user folder** (eg. C:/Users/WEX1) you should find a `git_password.txt` file.
+
+11. Run `git remote set-url origin <git_password>@<URL-from-above>` in your terminal to allow user access to the new repository (follows the format` https://github_pat2312323423434234534@github.com/WEX-1/my-amazing-repo.git`)
+
+12. Run `git remote -v` to verify the remote is correct
+
+13. Run `git push --set-upstream origin main` to transfer the work experience files to the new repository
+
+### To collaborate 
+
+1. When the repository has been created by the host laptop, navigate to the `<>Code` button on the new repoository, click and check that `HTTPS` is selected. Copy the URL given (follows the format `https://github.com/<your-username>/<your-repo-name>.git`).
+
+2. Run `git clone https://github.com/<your-username>/<your-repo-name>.git`
+
+3. Open up the repository in VScode.
+
+4. In your integrated terminal (or CommandPrompt/Windows PowerShell), create a new branch by running `git checkout -b <your-name>/<initial-feature>` - for example, for your first branch you might use `jasmine/p0-get-fact`
+
+5. When you have made your changes to a level that satisfies the criteria for the task you are working on, you first want to verify the changes have been picked up by running `git status` in your terminal.
+
+6. If you're happy with the changes, run `git add .` to add all of the changes, or `git add <filename>` to add individual files.
+
+7. Then, run `git commit -m "<your-message-explaining-changes>"` to stash your changes on your branch.
+
+8. Then, to put up a PR (Pull Request) you will run `git push --set-upstream origin [your-branch-from-above]` 
+
+9. This will push your changes to the remote origin - you can now navigate to the GitHub repository, where you will be able to open the PR in the interface.
+
+10. The team can now review your PR - checking for anything that may be missing or incorrect. The easiest way to do this is to navigate to the `Files Changed` tab in the PR.
+
+11. Once everyone is happy with the changes, in the corner there is a `Submit review` button. Click this an select `Approve` and then `Submit`. This **must** be done by someone other than the repository owner.
+
+12. Going back to the main PR screen, you should see a green button at the bottom, `Sqaush and merge`. Click this to merge your changes into the main repository.
+
+13. Checkout to main branch (`git checkout main`) and pull changes (`git pull`) to keep your local copy up-to-date with the remote.
+
+14. Repeat steps 4-13 for additional feature work.
+
 # P0: Random Fun Fact Generator
 As an engineer, I want to be able to get a random fun fact from a database, so that I can share them with my team.
 
