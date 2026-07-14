@@ -170,7 +170,7 @@ body {
 /*TASK: Style the home page */
 .home-container {
     /*This is image that will be rendered on your website's home page. TASK: Select an image from static/images/backgrounds that suits your teams chosen UI design */
-    background-image: url("../images/backgrounds/mother-of-pearl.jpg");
+    background-image: url("../images/backgrounds/brainrot.jpg");
 }
 
 /*TASK: Style the generate fact page */
