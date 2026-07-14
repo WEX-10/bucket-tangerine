@@ -11,7 +11,7 @@ def get_fact() -> Fact:
     with provider.cursor() as cur:
         # TODO: (Task P5.1) Use the category parameter to optionally filter the random fact query
         # TODO: (Task P0.1) Write SQL query to select a random fact from the database
-        cur.execute("") # SQL query goes here
+        cur.execute("SELECT fact FROM facts ORDER BY RANDOM() LIMIT 1;") # SQL query goes here
         # TODO: (Task P3.1) Add the likes and dislikes counts to the SQL query
         # TODO: (Task P4.2) Add the category column to the SQL query
         fact_data = fetch_fact_data(cur)
