@@ -17,6 +17,7 @@ def mock_db():
     """
     mock_provider = Mock()
     mock_cursor = Mock()
+    mock_cursor.description = []
     mock_provider.cursor.return_value.__enter__ = Mock(return_value=mock_cursor)
     mock_provider.cursor.return_value.__exit__ = Mock(return_value=None)
     return mock_provider, mock_cursor
