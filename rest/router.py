@@ -3,7 +3,7 @@
 from flask import Flask
 from .home import home_route
 from rest.get_fact import get_route
-from create_fact import create_route 
+from rest.create_fact import create_route
 # TODO: (Task P1.3) Import the create_route function from the create_fact module
 # TODO: (Task P3.3) Import the vote_fact function from the vote_fact module
 # TODO: (Task P5.5) Import the get_facts_by_category_route function from the get_facts_by_category module
