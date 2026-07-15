@@ -176,7 +176,7 @@ body {
 /*TASK: Style the generate fact page */
 .generate-container {
     /*This is image that will be rendered on your website's fact generation page. TASK: Select an image from static/images/backgrounds that suits your teams chosen UI design */
-    background-image: url("../images/backgrounds/paper.jpg");
+    background-image: url("../images/backgrounds/wallace.webp");
 }
 
 /*TASK: Style the create fact form page */
