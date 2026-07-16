@@ -170,19 +170,19 @@ body {
 /*TASK: Style the home page */
 .home-container {
     /*This is image that will be rendered on your website's home page. TASK: Select an image from static/images/backgrounds that suits your teams chosen UI design */
-    background-image: url("../images/backgrounds/brainrot.jpg");
+    background-image: url("../images/backgrounds/blue-streak.webp");
 }
 
 /*TASK: Style the generate fact page */
 .generate-container {
     /*This is image that will be rendered on your website's fact generation page. TASK: Select an image from static/images/backgrounds that suits your teams chosen UI design */
-    background-image: url("../images/backgrounds/wallace.webp");
+    background-image: url("../images/backgrounds/blue-streak.webp");
 }
 
 /*TASK: Style the create fact form page */
 .create-container {
     /*This is image that will be rendered on your website's fact creation form page. TASK: Select an image from static/images/backgrounds that suits your teams chosen UI design */
-    background-image: url("../images/backgrounds/mother-of-pearl.jpg");
+    background-image: url("../images/backgrounds/blue-streak.webp");
     background-color: rgba(255,255,255,0.6);
     background-blend-mode: lighten;
 }
