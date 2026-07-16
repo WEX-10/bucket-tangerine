@@ -23,7 +23,7 @@ class TestCreateFact:
         mock_cursor.fetchone.return_value = (1, "Test fact", "science", 0, 0)
 
         # ACT
-        # TODO: (Task P4.7) Call the create_fact function with fact and category test data as arguments
+        create_fact("Test fact")# TODO: (Task P4.7) Call the create_fact function with fact and category test data as arguments
 
         # ASSERT
         # TODO: (Task P4.7) Check if returned fact fields, including category, match what we expect 
